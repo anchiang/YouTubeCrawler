@@ -15,9 +15,9 @@ for line in youtubes:
     url = line.rstrip('\n') + "/about"
     print(url)
     n += 1
-    response = urllib.request.urlopen(url)
-    html_cont = response.read()
-    soup = bs(html_cont,'html.parser',from_encoding='UTF-8')
+    response = urllib.request.urlopen(url) #開連結 
+    html_cont = response.read() 
+    soup = bs(html_cont,'html.parser',from_encoding='UTF-8') #結構化 
     res = soup.find_all(class_="about-stat")
     people = locale.atoi(res[0].find('b').string)
     views = locale.atoi(res[1].find('b').string)
